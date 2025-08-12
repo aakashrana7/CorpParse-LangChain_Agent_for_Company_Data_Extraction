@@ -1,24 +1,13 @@
-# LangChain Company Info Extractor (LCEL Agentic Workflow)
+# CorpParse — LCEL-Powered Company Info Extractor
 
-## 📌 Overview
-This project uses **LangChain's LCEL (LangChain Expression Language)** to build an **intelligent agent** that can parse textual essays about company histories and automatically extract key business details, including:
-- **Company Name**
-- **Founding Date**
-- **Founders**
+## Project Summary
+**CorpParse** is a lightweight pipeline that uses LangChain’s LCEL (Runnable) patterns and an agent-driven workflow to locate and extract structured company details from free-form text. The tool processes text **paragraph-by-paragraph**, identifies company names, founding dates, and founders, and outputs a normalized CSV (`company_info.csv`) for downstream use.
 
-Once extracted, the system formats the data into a **standardized CSV file** (`company_info.csv`) for easy integration with databases and other systems.
+This project is aimed at researchers, analysts, and data engineers who need an automated, repeatable way to convert narrative business descriptions into tabular data.
 
-The solution leverages:
-- **LCEL Runnable Interface** – for modular and structured text processing
-- **Tools and Tool Calling** – for database-ready workflows
-- **Agentic Workflow** – for flexible, automated information extraction
-
----
-
-## 🎯 Objective
-Develop a robust, scalable AI-powered pipeline that:
-1. Processes text paragraphs individually.
-2. Extracts structured company data.
-3. Outputs a **CSV file** with the extracted details.
-
----
+## Key Features
+- Paragraph-level processing (each paragraph treated as one input unit)
+- Agentic extraction pipeline using LangChain LCEL Runnables
+- Tool wrappers for deterministic parsing (dates, names) and post-processing
+- Output: standardized CSV with one row per discovered company
+- Easy to extend (add more fields, integrate vector DBs, or connect to a database)
