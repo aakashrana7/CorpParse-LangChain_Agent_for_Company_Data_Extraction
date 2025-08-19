@@ -5,6 +5,25 @@
 
 This project is aimed at researchers, analysts, and data engineers who need an automated, repeatable way to convert narrative business descriptions into tabular data.
 
+## File Structure
+
+corpparse/
+│
+├── backend/
+│   ├── app.py                # Flask server (handles frontend routes & API)
+│   ├── agent_workflow.py     # LCEL + AI Agent workflow logic (parsing + CSV generation)
+│   ├── utils.py              # Helper functions (e.g., PDF text extraction, date handling)
+│   └── company_info.csv      # Output CSV file
+│
+├── frontend/
+│   ├── index.html            # UI page (input essay/upload PDF)
+│   ├── styles.css            # Styling for frontend
+│   └── script.js             # JS to send input to Flask and display results
+│
+├── requirements.txt          # Dependencies
+└── README.md                 # Documentation
+
+
 ## Key Features
 - Paragraph-level processing (each paragraph treated as one input unit)
 - Agentic extraction pipeline using LangChain LCEL Runnables
