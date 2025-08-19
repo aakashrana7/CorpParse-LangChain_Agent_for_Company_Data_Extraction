@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CorpParse — Company Info Extractor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">CP</div>
+      <div>
+        <h1>CorpParse</h1>
+        <p class="tagline">Extract company names, founding dates, and founders—fast.</p>
+      </div>
+    </div>
+    <nav class="actions">
+      <button id="demoBtn" class="btn btn-ghost" title="Use a demo sample">Try Demo</button>
+      <a id="downloadCsvBtn" class="btn btn-primary disabled" href="#" download="company_info.csv">Download CSV</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Input card -->
+    <section class="card">
+      <h2>Input</h2>
+      <p class="muted">Paste your essay below or upload a <strong>.pdf</strong> or <strong>.txt</strong> file. If both are provided, the file is used.</p>
+
+      <form id="extractForm">
+        <div class="field">
+          <label for="essayInput">Essay / Text</label>
+          <textarea id="essayInput" placeholder="Paste your text here..." rows="8"></textarea>
+        </div>
+
+        <div class="divider">
+          <span>or</span>
+        </div>
+
+        <div class="field">
+          <label for="fileInput">Upload File (.pdf, .txt)</label>
+          <input id="fileInput" type="file" accept=".pdf,.txt" />
+        </div>
+
+        <div class="form-actions">
+          <button id="extractBtn" type="submit" class="btn btn-accent">Run Extraction</button>
+          <button id="clearBtn" type="button" class="btn btn-ghost">Clear</button>
+        </div>
+
+        <div id="status" class="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <!-- Output card -->
+    <section class="card">
+      <div class="output-header">
+        <h2>Output Console</h2>
+        <div class="tabs" role="tablist">
+          <button id="tabTable" class="tab active" role="tab" aria-selected="true" aria-controls="panelTable">Table</button>
+          <button id="tabCsv" class="tab" role="tab" aria-selected="false" aria-controls="panelCsv">CSV</button>
+        </div>
+      </div>
+
+      <div id="panelTable" class="tab-panel active" role="tabpanel" aria-labelledby="tabTable">
+        <div class="table-wrap">
+          <table id="resultsTable">
+            <thead>
+              <tr>
+                <th>S.N.</th>
+                <th>Company Name</th>
+                <th>Founded in</th>
+                <th>Founded by</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody">
+              <!-- rows injected by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="panelCsv" class="tab-panel" role="tabpanel" aria-labelledby="tabCsv">
+        <pre id="csvConsole" class="console" tabindex="0">No results yet.</pre>
+        <div class="console-actions">
+          <button id="copyCsvBtn" class="btn btn-ghost">Copy CSV</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> CorpParse</span>
+    <span class="muted">Built for your agentic workflow</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
